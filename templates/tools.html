@@ -1,0 +1,86 @@
+<!-- tools.html -->
+{% extends 'extras/navegacion.html' %}
+{% load static %}
+
+{% block title %}Herramientas{% endblock %}
+
+{% block pag %}
+
+<link rel="stylesheet" href="{% static 'CSS/tools.css' %}">
+
+<h1 class="titulo">Herramientas para Convocatorias</h1>
+
+<p class="descripcion">
+    Estas herramientas te ayudarán a diseñar, personalizar y mejorar
+    la presentación de tus convocatorias.
+</p>
+
+<div class="tools-container">
+
+    <div class="tool-card">
+        <h3>The Noun Project</h3>
+        <p>Estilo minimalista, ideal para interfaces de usuario y presentaciones.</p>
+        <a href="https://thenounproject.com" target="_blank" class="btn_tool">
+            Ir al sitio
+        </a>
+    </div>
+
+    <div class="tool-card">
+        <h3>Icons8</h3>
+        <p>Iconos modernos, ilustraciones y stickers para diseño web y apps.</p>
+        <a href="https://icons8.com/icons" target="_blank" class="btn_tool">
+            Ir al sitio
+        </a>
+    </div>
+
+    <div class="tool-card">
+        <h3>Material Icons</h3>
+        <p>Iconos oficiales de Google, perfectos para aplicaciones web y móviles.</p>
+        <a href="https://fonts.google.com/icons" target="_blank" class="btn_tool">
+            Ir al sitio
+        </a>
+    </div>
+
+    <div class="tool-card">
+        <h3>Bootstrap Icons</h3>
+        <p>Colección de iconos muy usados en proyectos web modernos.</p>
+        <a href="https://icons.getbootstrap.com" target="_blank" class="btn_tool">
+            Ir al sitio
+        </a>
+    </div>
+
+</div>
+
+<hr>
+
+<h2 class="subtitulo">Otras Herramientas Útiles</h2>
+
+<div class="tools-container">
+
+    <div class="tool-card">
+        <h3>Canva</h3>
+        <p>Diseña imágenes, flyers y banners para tus convocatorias fácilmente.</p>
+        <a href="https://www.canva.com" target="_blank" class="btn_tool">
+            Ir al sitio
+        </a>
+    </div>
+
+    <div class="tool-card">
+        <h3>Coolors</h3>
+        <p>Generador de paletas de colores para mejorar el diseño visual.</p>
+        <a href="https://coolors.co" target="_blank" class="btn_tool">
+            Ir al sitio
+        </a>
+    </div>
+
+    <div class="tool-card">
+        <h3>Google Fonts</h3>
+        <p>Tipografías gratuitas para mejorar la lectura y estética.</p>
+        <a href="https://fonts.google.com" target="_blank" class="btn_tool">
+            Ir al sitio
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

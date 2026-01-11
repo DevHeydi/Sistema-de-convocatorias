@@ -1,0 +1,26 @@
+<!-- edit.html -->
+{% extends 'extras/navegacion.html' %}
+{% load static %}
+
+{% block pag %}
+
+<link rel="stylesheet" href="{% static 'CSS/editar.css' %}">
+
+<h2>Selecciona una convocatoria para editar</h2>
+
+{% if convocatorias %}
+    <ul class="lista-convocatorias">
+    {% for c in convocatorias %}
+        <li class="convocatoria-item">
+            <strong>{{ c.nombre }}</strong>
+            <a href="{% url 'convocatorias:editar_convocatoria' c.id %}" class="btn-editar">
+                Editar
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay convocatorias registradas.</p>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,27 @@
+<!-- create.html -->
+{% extends 'extras/navegacion.html' %}
+{% load static %}  <!-- 🔹 Aquí cargamos las etiquetas estáticas -->
+
+{% block pag %}
+<title>{{ accion }} Convocatoria</title>
+<!-- CSS -->
+<link rel="stylesheet" href="{% static 'CSS/crear.css' %}">
+
+<h1 class="btn">{{ accion }} Convocatoria</h1>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit" name="guardar" class="btn_crate">
+        {{ accion }}
+    </button>
+
+    <button type="submit"
+            formaction="{% url 'convocatorias:preview' %}"
+            class="btn_crate btn-preview">
+        Vista previa
+    </button>
+</form>
+
+{% endblock %}

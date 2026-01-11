@@ -1,0 +1,35 @@
+<!-- delete.html -->
+{% extends 'extras/navegacion.html' %}
+{% load static %}
+{% block pag %}
+
+<link rel="stylesheet" href="{% static 'CSS/eliminar.css' %}">
+
+<div class="eliminar-container">
+    <h1>Eliminar Convocatoria</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <input 
+            type="text" 
+            name="kword" 
+            placeholder="Nombre de la convocatoria a eliminar"
+            class="textinp"
+        >
+
+        <button class="btn-eliminar" type="submit">
+            Eliminar
+        </button>
+    </form>
+
+    {% if mensaje %}
+        <p class="mensaje-ok">{{ mensaje }}</p>
+    {% endif %}
+
+    {% if error %}
+        <p class="mensaje-error">{{ error }}</p>
+    {% endif %}
+</div>
+
+{% endblock %}

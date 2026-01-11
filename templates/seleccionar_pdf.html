@@ -1,0 +1,29 @@
+{% extends 'extras/navegacion.html' %}
+{% load static %}
+
+{% block pag %}
+<link rel="stylesheet" href="{% static 'CSS/pdf.css' %}">
+
+<div class="pdf-container">
+    <h1>Generar PDF</h1>
+
+    <ul class="pdf-list">
+        {% for c in convocatorias %}
+        <li>
+            <div class="pdf-info">
+                <strong>{{ c.nombre }}</strong><br>
+                {{ c.deporte }} – {{ c.categoria }}
+            </div>
+
+            <div class="pdf-actions">
+                <a href="{% url 'convocatorias:generar_pdf' c.id %}" class="btn-pdf">
+                    Generar PDF
+                </a>
+            </div>
+        </li>
+        {% empty %}
+        <p class="empty-message">No hay convocatorias disponibles</p>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

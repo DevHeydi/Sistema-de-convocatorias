@@ -1,0 +1,34 @@
+{% extends 'extras/navegacion.html' %}
+{% load static %}
+
+{% block pag %}
+
+<link rel="stylesheet" href="{% static 'CSS/filtro.css' %}">
+
+<div class="filtro-contenedor">
+
+    <h1>Buscar Convocatoria</h1>
+
+    <form method="GET">
+        <input 
+            type="text" 
+            id="kword" 
+            name="kword"
+            placeholder="Ingrese Convocatoria aqui">
+        <button type="submit">Buscar</button>    
+
+        <h3>Lista de resultados de convocatorias</h3>
+
+        <ul>
+            {% for c in convocatorias %}
+                <li>
+                    {{ c.nombre }} - {{ c.deporte }} - {{ c.estado }}
+                </li>
+            {% endfor %}
+        </ul>
+    </form>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,93 @@
+<!-- navegacion.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="es"> <!-- Cambié a español -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Convocatorias{% endblock %}</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'CSS/navegacion.css' %}">
+    <link rel="shortcut icon" href="{% static 'img/imcufide_1.png' %}" type="image/png">
+    <!-- Font Awesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header con logo y título -->
+    <header class="main-header">
+        <div class="header-content">
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <img src="{% static 'img/imcufide_1.png' %}" alt="IMCUFIDE" width="50">
+            <h1 class="site-title">CONVOCATORIAS</h1>
+        </div>
+    </header>
+
+    <!-- Barra de navegación lateral -->
+    <nav class="navbar vertical-nav" id="navbar">
+        <div class="nav-header">
+            <h2 class="nav-title">Menú</h2>
+        </div>
+        <ul class="nav-menu">
+            <li>
+                <a href="{% url 'convocatorias:create' %}">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>Crear</span>
+                </a>
+            </li>
+            <a href="{% url 'convocatorias:edit' %}">
+                <i class="fas fa-edit"></i>
+                <span>Editar</span>
+            </a>
+            <li>
+                <a href="{% url 'convocatorias:delete' %}">
+                    <i class="fas fa-trash-alt"></i>
+                    <span>Eliminar</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="{% url 'convocatorias:filtro' %}">
+                    <i class="fas fa-search"></i>
+                    <span>Buscar</span>
+                </a>
+            </li>
+            <li>
+            <a href="{% url 'convocatorias:seleccionar_pdf' %}">
+                <i class="fas fa-file-pdf"></i>
+                <span>Generar PDF</span>
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'convocatorias:tools' %}">
+                <i class="fas fa-tools"></i>
+                <span>Herramientas</span>
+            </a>
+        </li>
+        </ul>
+
+    </nav>
+
+    <main class="all">
+        {% block pag %}{% endblock %}
+    </main>
+
+    <!-- JavaScript para el menú móvil -->
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('navbar').classList.toggle('active');
+        });
+        
+        // Cerrar menú al hacer clic en un enlace (solo en móviles)
+        if (window.innerWidth <= 576) {
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    document.getElementById('navbar').classList.remove('active');
+                });
+            });
+        }
+    </script>
+</body>
+</html>

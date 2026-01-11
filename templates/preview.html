@@ -1,0 +1,78 @@
+{% extends 'extras/navegacion.html' %}
+{% load static %}
+
+{% block pag %}
+<link rel="stylesheet" href="{% static 'CSS/vista_previa.css' %}">
+
+<h1>Vista Previa: {{ convocatoria.nombre }}</h1>
+
+<div class="preview">
+
+    <!-- Información básica -->
+    {% if convocatoria.deporte %}<p><strong>Deporte:</strong> {{ convocatoria.deporte }}</p>{% endif %}
+    {% if convocatoria.categoria %}<p><strong>Categoría:</strong> {{ convocatoria.categoria }}</p>{% endif %}
+    {% if convocatoria.rama %}<p><strong>Rama:</strong> {{ convocatoria.rama }}</p>{% endif %}
+    {% if convocatoria.descripcion %}<p><strong>Descripción:</strong> {{ convocatoria.descripcion }}</p>{% endif %}
+
+    <!-- Fechas -->
+    {% if convocatoria.fecha_inicio_torneo %}<p><strong>Fecha de Inicio:</strong> {{ convocatoria.fecha_inicio_torneo }}</p>{% endif %}
+    {% if convocatoria.fecha_limite_inscripcion %}<p><strong>Fecha Límite de Inscripción:</strong> {{ convocatoria.fecha_limite_inscripcion }}</p>{% endif %}
+
+    {% if convocatoria.junta_previa_fecha %}
+        <p><strong>Reunión Previa:</strong> {{ convocatoria.junta_previa_fecha }}{% if convocatoria.junta_previa_hora %} a las {{ convocatoria.junta_previa_hora }}{% endif %}</p>
+        {% if convocatoria.junta_previa_descripcion %}<p><strong>Descripción Reunión Previa:</strong> {{ convocatoria.junta_previa_descripcion }}</p>{% endif %}
+    {% endif %}
+
+    <!-- Imágenes -->
+    {% if convocatoria.logo_ayuntamiento %}
+        <img src="{{ convocatoria.logo_ayuntamiento.url }}" alt="Logo Ayuntamiento" width="150">
+    {% endif %}
+    {% if convocatoria.imagen_fondo %}
+        <img src="{{ convocatoria.imagen_fondo.url }}" alt="Imagen Fondo" width="300">
+    {% endif %}
+
+    <!-- Comité y sistema de competencia -->
+    {% if convocatoria.comite_organizador %}<p><strong>Comité Organizador:</strong> {{ convocatoria.comite_organizador }}</p>{% endif %}
+    {% if convocatoria.sistema_competencia %}<p><strong>Sistema de Competencia:</strong> {{ convocatoria.sistema_competencia }}</p>{% endif %}
+    {% if convocatoria.fase_final %}<p><strong>Fase Final:</strong> {{ convocatoria.fase_final }}</p>{% endif %}
+
+    <!-- Inscripciones -->
+    {% if convocatoria.costo_inscripcion %}<p><strong>Costo de Inscripción:</strong> ${{ convocatoria.costo_inscripcion }}</p>{% endif %}
+    {% if convocatoria.forma_pago %}<p><strong>Forma de Pago:</strong> {{ convocatoria.forma_pago }}</p>{% endif %}
+    {% if convocatoria.lugar_inscripcion %}<p><strong>Lugar de Inscripción:</strong> {{ convocatoria.lugar_inscripcion }}</p>{% endif %}
+
+    <!-- Requisitos -->
+    {% if convocatoria.requisitos %}<p><strong>Requisitos:</strong> {{ convocatoria.requisitos }}</p>{% endif %}
+    {% if convocatoria.documentos_requeridos %}<p><strong>Documentos Requeridos:</strong> {{ convocatoria.documentos_requeridos }}</p>{% endif %}
+
+    <!-- Normatividad y premiación -->
+    {% if convocatoria.normatividad_aplicable %}<p><strong>Normatividad:</strong> {{ convocatoria.normatividad_aplicable }}</p>{% endif %}
+    {% if convocatoria.premiacion_primero or convocatoria.premiacion_segundo or convocatoria.premiacion_tercero %}
+        <p><strong>Premiación:</strong></p>
+        <ul>
+            {% if convocatoria.premiacion_primero %}<li>1er Lugar: {{ convocatoria.premiacion_primero }}</li>{% endif %}
+            {% if convocatoria.premiacion_segundo %}<li>2do Lugar: {{ convocatoria.premiacion_segundo }}</li>{% endif %}
+            {% if convocatoria.premiacion_tercero %}<li>3er Lugar: {{ convocatoria.premiacion_tercero }}</li>{% endif %}
+        </ul>
+        {% if convocatoria.premiacion_adicional %}<p><strong>Premios Adicionales:</strong> {{ convocatoria.premiacion_adicional }}</p>{% endif %}
+    {% endif %}
+
+    <!-- Arbitraje -->
+    {% if convocatoria.arbitraje %}<p><strong>Arbitraje:</strong> {{ convocatoria.arbitraje }}</p>{% endif %}
+    {% if convocatoria.costo_arbitraje %}<p><strong>Costo de Arbitraje:</strong> ${{ convocatoria.costo_arbitraje }}</p>{% endif %}
+
+    <!-- Información de contacto -->
+    {% if convocatoria.institucion_responsable %}<p><strong>Institución Responsable:</strong> {{ convocatoria.institucion_responsable }}</p>{% endif %}
+    {% if convocatoria.direccion %}<p><strong>Dirección:</strong> {{ convocatoria.direccion }}</p>{% endif %}
+    {% if convocatoria.telefono %}<p><strong>Teléfono:</strong> {{ convocatoria.telefono }}</p>{% endif %}
+    {% if convocatoria.correo %}<p><strong>Correo:</strong> {{ convocatoria.correo }}</p>{% endif %}
+
+</div>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn_crate" type="submit">Confirmar y Guardar</button>
+</form>
+
+{% endblock %}
