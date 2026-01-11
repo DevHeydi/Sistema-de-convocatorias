@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500&display=swap');
+
+:root {
+    --azul: #1E90FF;
+    --azul-suave: #e8f1ff;
+    --gris-fondo: #f8fafc;
+    --gris-borde: #d1d5db;
+    --texto: #1f2937;
+    --blanco: #ffffff;
+}
+
+/* TÍTULO */
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--azul);
+    margin-bottom: 25px;
+}
+
+/* CONTENEDOR DE VISTA PREVIA */
+.preview {
+    background-color: var(--blanco);
+    border-radius: 18px;
+    padding: 35px;
+    max-width: 1000px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    margin-bottom: 40px;
+}
+
+/* PÁRRAFOS */
+.preview p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--texto);
+    margin-bottom: 12px;
+}
+
+/* ETIQUETAS */
+.preview strong {
+    color: #0f172a;
+    font-weight: 600;
+}
+
+/* SECCIONES VISUALES */
+.preview p strong {
+    display: inline-block;
+    min-width: 210px;
+}
+
+/* LISTAS */
+.preview ul {
+    margin-left: 25px;
+    margin-bottom: 15px;
+}
+
+.preview li {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+/* IMÁGENES */
+.preview img {
+    display: block;
+    margin: 18px 0;
+    border-radius: 14px;
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* FORMULARIO CONFIRMAR */
+form {
+    background-color: var(--gris-fondo);
+    padding: 25px;
+    border-radius: 16px;
+    max-width: 1000px;
+}
+
+/* OCULTAR CAMPOS EN PREVIEW */
+form p {
+    display: none;
+}
+
+/* BOTÓN CONFIRMAR */
+.btn_crate {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px 26px;
+    color: var(--blanco);
+    background-color: var(--azul);
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+/* HOVER */
+.btn_crate:hover {
+    background-color: #187bdb;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(30, 144, 255, 0.35);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .preview {
+        padding: 22px;
+    }
+
+    .preview p strong {
+        min-width: auto;
+        display: block;
+        margin-bottom: 4px;
+    }
+
+    .btn_crate {
+        width: 100%;
+    }
+}

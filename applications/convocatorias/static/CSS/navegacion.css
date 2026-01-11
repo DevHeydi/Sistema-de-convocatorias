@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500&display=swap');
+
+:root {
+    --azul-principal: #1E90FF;
+    --azul-hover: #187bdb;
+    --fondo-nav: #0f172a;
+    --fondo-nav-hover: #1e293b;
+    --blanco: #ffffff;
+    --gris-claro: #e5e7eb;
+    --texto: #1f2937;
+}
+
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8fafc;
+}
+
+/* ================= HEADER ================= */
+
+.main-header {
+    background-color: var(--azul-principal);
+    padding: 14px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.site-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--blanco);
+}
+
+/* BOTÓN MENÚ */
+.menu-toggle {
+    background: none;
+    border: none;
+    color: var(--blanco);
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* ================= NAVBAR ================= */
+
+.vertical-nav {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    width: 240px;
+    height: calc(100vh - 64px);
+    background-color: var(--fondo-nav);
+    padding: 20px 0;
+    transition: transform 0.3s ease;
+}
+
+.nav-header {
+    padding: 0 20px 15px;
+    border-bottom: 1px solid #334155;
+}
+
+.nav-title {
+    color: var(--gris-claro);
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+
+/* MENÚ */
+.nav-menu {
+    list-style: none;
+    margin-top: 15px;
+}
+
+.nav-menu li {
+    width: 100%;
+}
+
+.nav-menu a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 22px;
+    color: var(--gris-claro);
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.nav-menu a i {
+    width: 18px;
+    font-size: 16px;
+}
+
+.nav-menu a:hover {
+    background-color: var(--fondo-nav-hover);
+    color: var(--blanco);
+}
+
+/* ================= CONTENIDO ================= */
+
+main.all {
+    margin-left: 240px;
+    margin-top: 80px;
+    padding: 30px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+    .vertical-nav {
+        transform: translateX(-100%);
+    }
+
+    .vertical-nav.active {
+        transform: translateX(0);
+    }
+
+    main.all {
+        margin-left: 0;
+    }
+}

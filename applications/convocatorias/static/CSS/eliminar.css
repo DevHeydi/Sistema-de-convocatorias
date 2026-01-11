@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@300;400&display=swap');
+
+:root {
+    --azul: #1E90FF;
+    --blanco: #FFFFFF;
+    --rojo: #FF4C4C;
+    --gris: #B0B0B0;
+    --negro: #000000;
+}
+
+/* CONTENEDOR */
+.eliminar-container {
+    max-width: 420px;
+    margin: 60px auto;
+    padding: 30px;
+    background: var(--blanco);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    text-align: center;
+}
+
+/* TÍTULO */
+.eliminar-container h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: var(--azul);
+    margin-bottom: 25px;
+}
+
+/* INPUT */
+.textinp {
+    width: 100%;
+    padding: 12px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    border: 1px solid var(--gris);
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.textinp:focus {
+    border-color: var(--azul);
+    outline: none;
+    box-shadow: 0 0 5px rgba(30,144,255,0.3);
+}
+
+/* BOTÓN */
+.btn-eliminar {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--rojo);
+    color: var(--blanco);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-eliminar:hover {
+    background-color: #e04343;
+    transform: scale(1.03);
+}
+
+/* MENSAJES */
+.mensaje-ok {
+    margin-top: 15px;
+    color: var(--azul);
+    font-family: 'Roboto', sans-serif;
+}
+
+.mensaje-error {
+    margin-top: 15px;
+    color: var(--rojo);
+    font-family: 'Roboto', sans-serif;
+}
